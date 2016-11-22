@@ -10,8 +10,6 @@ extern "C" {
 
 static const AVPixelFormat sourcePixelFormat = AV_PIX_FMT_BGR24;
 static const AVPixelFormat destPixelFormat = AV_PIX_FMT_YUV420P;
-static const AVCodecID destCodec = AV_CODEC_ID_VP8;
-
 
 int flush_encoder(AVFormatContext *fmt_ctx,unsigned int stream_index){
 	int ret;
@@ -109,7 +107,7 @@ int main(int argc, char** argv)
 		return -1;
 	}	
 	pCodecCtx = video_st->codec;
-    pCodecCtx->codec_id = AV_CODEC_ID_VP8;
+        pCodecCtx->codec_id = AV_CODEC_ID_VP8;
 	pCodecCtx->codec_type = AVMEDIA_TYPE_VIDEO;
 	pCodecCtx->pix_fmt = AV_PIX_FMT_YUV420P;
 	pCodecCtx->width = width;
